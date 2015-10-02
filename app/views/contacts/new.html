@@ -3,22 +3,26 @@
 
 <div class="container">
     <!-- Example row of columns -->
+    <%= render :partial => 'partials/validations' ,  :locals => {:my_model => @contact}%>
+
     <div class="row">
-        <div class="col-md-1">
-            <%= form_for @contact, url: {action: "create"} do |f| %>
+        <div class="col-md-6">
+            <%= form_for @contact,  url: {action: "create"} do |f| %>
             <div class="field">
                 <%= f.label :name%>
-                <%= f.text_field :name %>
+                <%= f.text_field :name ,  :class => 'form-control' %>
                 <%= f.label :email%>
-                <%= f.text_field :email %>
+                <%= f.text_field :email  ,  :class => 'form-control' %>
                 <%= f.label :message%>
-                <%= f.text_area :message %>
+                <%= f.text_area :message  ,  :class => 'form-control' , :rows=>5 %>
             </div>
             <div class="actions">
+                <p> </p>
                 <%= f.submit "Enviar"%>
             </div>
             <% end %>
         </div>
     </div>
+
 
 </div>
