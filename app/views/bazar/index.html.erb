@@ -1,0 +1,28 @@
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+
+
+<%= render :layout => 'partials/jumbotron', :locals => {:title=> "Vendo!!!", :description => "Pessoal, estou indo morar fora por uns tempos, e preciso esvaziar o apartamento para aluguel. Fiz
+      esse site para que os amigos darem uma olhada, caso alguma coisa lhes interesse, pode entrar em contato pelo site
+      mesmo ou para os mais intimos msg."} do %>
+    <p><%= @linhas %></p>
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <ul>
+      <% for category in @categories %>
+          <li class="item-bazar">
+            <h2><%= category.name %></h2>
+            <% if category.items.length > 0 %>
+                <%= link_to 'Ver Itens', category_path(category), class: "btn btn-default" %>
+            <% else %>
+                <a class="btn btn-default" disabled="disabled" href="#" role="button">Esgotado &raquo;</a>
+            <% end %>
+            <div><img src="<%= image_path(category.photo) %>"/></div>
+            </li>
+      <% end %>
+
+    </ul>
+  </div>
+</div>

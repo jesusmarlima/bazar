@@ -1,0 +1,18 @@
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<%= render :partial => 'partials/jumbotron',  :locals => {:title=> @category.name, :description => "Quantidade : #{@category.items.length}"} %>
+<div class="container">
+ 
+      <div class="row">
+        <ul>
+          <% for item in @category.items %>
+              <li class="item-bazar">
+                <h2><%=item.name %></h2>
+                <h4><%=item.summary %></h4>
+                <h4><%=item.description %></h4>
+                <%= link_to "Contactar" , new_item_contact_path(item.id), class:"btn btn-default"  %></p>
+                 <div> <img src="<%= image_path(item.photo) %>"  /></div>
+              </li>
+          <% end %>
+        </ul>
+      </div>
