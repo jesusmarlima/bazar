@@ -10,8 +10,11 @@
                 <h2><%=item.name %></h2>
                 <h4><%=item.summary %></h4>
                 <h4><%=item.description %></h4>
+                <h4><%=number_to_currency(item.price, unit: "R$ ", separator: ",", delimiter: ".") %>
+                </h4>
                 <%= link_to "Contactar" , new_item_contact_path(item.id), class:"btn btn-default"  %></p>
-                 <div> <img src="<%= image_path(item.photo) %>"  /></div>
+
+                <div> <img src="<%= image_path(item.photo) %>"  /></div>
               </li>
           <% end %>
         </ul>

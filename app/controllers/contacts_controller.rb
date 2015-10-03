@@ -10,8 +10,6 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     @contact.item = Item.find(params[:item_id])
 
-
-
     if @contact.save
       ContactMailer.welcome_email(@contact)
       redirect_to root_path
